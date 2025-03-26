@@ -132,7 +132,7 @@ export default function Portfolio() {
           <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
             Nawal Akhlaq
           </h1>
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-right gap-6">
             <Link href="#about" className="hover:text-cyan-400 transition-colors">
               About
             </Link>
