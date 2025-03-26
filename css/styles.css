@@ -381,7 +381,7 @@ h6 {
 }
 
 .justify-between {
-  justify-between: space-between;
+  justify-content: space-between;
 }
 
 .gap-2 {
@@ -446,6 +446,33 @@ h6 {
 }
 
 /* Components */
+
+/* Navigation specific styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+nav h1 {
+  margin-right: auto; /* Pushes the title to the left */
+}
+
+nav .hidden.md\:flex {
+  margin-left: auto; /* Pushes the navigation links to the right */
+}
+
+/* Ensure proper spacing in the navigation links */
+.md\:flex.items-center.gap-6 {
+  gap: 1.5rem;
+}
+
+/* Mobile menu alignment */
+#mobileMenu {
+  text-align: right;
+}
+
 .nav-link {
   color: var(--gray-100);
   text-decoration: none;

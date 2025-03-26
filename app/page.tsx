@@ -129,7 +129,10 @@ export default function Portfolio() {
       {/* Header */}
       <header className="container mx-auto py-6 relative z-10">
         <nav className="flex justify-between items-center backdrop-blur-sm bg-black/20 p-4 rounded-xl">
-          <div className="hidden md:flex items-right gap-6">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            Nawal Akhlaq
+          </h1>
+          <div className="hidden md:flex items-center gap-6">
             <Link href="#about" className="hover:text-cyan-400 transition-colors">
               About
             </Link>
