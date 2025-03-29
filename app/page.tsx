@@ -575,18 +575,33 @@ export default function Portfolio() {
                     Send a Message
                   </h3>
                   <form
-                    action="https://formspree.io/f/your-formspree-id"
+                    action="https://formspree.io/f/nawalakhlaq71@gmail.com"
                     method="POST"
                     className="space-y-4"
                     onSubmit={(e) => {
+                      e.preventDefault()
                       const form = e.currentTarget
-                      const isValid = form.checkValidity()
-                      if (!isValid) {
-                        e.preventDefault()
-                        alert("Please fill out all required fields.")
-                      } else {
-                        // Let the form submit normally to Formspree
-                      }
+                      const formData = new FormData(form)
+
+                      fetch("https://formspree.io/f/nawalakhlaq71@gmail.com", {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                          Accept: "application/json",
+                        },
+                      })
+                        .then((response) => {
+                          if (response.ok) {
+                            alert("Thank you for your message! I'll get back to you soon.")
+                            form.reset()
+                          } else {
+                            alert("Oops! There was a problem sending your message. Please try again.")
+                          }
+                        })
+                        .catch((error) => {
+                          console.error("Error:", error)
+                          alert("Oops! There was a problem sending your message. Please try again.")
+                        })
                     }}
                   >
                     <div>
@@ -617,6 +632,7 @@ export default function Portfolio() {
                       ></textarea>
                     </div>
                     <input type="hidden" name="_subject" value="New message from portfolio website" />
+                    <input type="text" name="_gotcha" style={{ display: "none" }} />
                     <Button
                       type="submit"
                       className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 shadow-[0_0_15px_rgba(0,200,255,0.4)] hover:shadow-[0_0_25px_rgba(0,200,255,0.6)] transition-all"
