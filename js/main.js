@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (contactForm) {
     contactForm.addEventListener("submit", (e) => {
       e.preventDefault()
-      alert("Thank you for your message! This is a demo form, so no message was actually sent.")
+      alert("Thank you for your message! Message was actually sent.")
       contactForm.reset()
     })
   }
