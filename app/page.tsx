@@ -574,29 +574,53 @@ export default function Portfolio() {
                   <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                     Send a Message
                   </h3>
-                  <form className="space-y-4">
+                  <form
+                    action="https://formspree.io/f/your-formspree-id"
+                    method="POST"
+                    className="space-y-4"
+                    onSubmit={(e) => {
+                      const form = e.currentTarget
+                      const isValid = form.checkValidity()
+                      if (!isValid) {
+                        e.preventDefault()
+                        alert("Please fill out all required fields.")
+                      } else {
+                        // Let the form submit normally to Formspree
+                      }
+                    }}
+                  >
                     <div>
                       <input
                         type="text"
+                        name="name"
                         placeholder="Your Name"
                         className="w-full p-3 rounded-md bg-black/50 border border-cyan-500/30 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 transition-all"
+                        required
                       />
                     </div>
                     <div>
                       <input
                         type="email"
+                        name="_replyto"
                         placeholder="Your Email"
                         className="w-full p-3 rounded-md bg-black/50 border border-cyan-500/30 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 transition-all"
+                        required
                       />
                     </div>
                     <div>
                       <textarea
+                        name="message"
                         placeholder="Your Message"
                         rows={4}
                         className="w-full p-3 rounded-md bg-black/50 border border-cyan-500/30 focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500/50 transition-all"
+                        required
                       ></textarea>
                     </div>
-                    <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 shadow-[0_0_15px_rgba(0,200,255,0.4)] hover:shadow-[0_0_25px_rgba(0,200,255,0.6)] transition-all">
+                    <input type="hidden" name="_subject" value="New message from portfolio website" />
+                    <Button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 shadow-[0_0_15px_rgba(0,200,255,0.4)] hover:shadow-[0_0_25px_rgba(0,200,255,0.6)] transition-all"
+                    >
                       Send Message
                     </Button>
                   </form>
@@ -628,4 +652,3 @@ export default function Portfolio() {
     </div>
   )
 }
-
